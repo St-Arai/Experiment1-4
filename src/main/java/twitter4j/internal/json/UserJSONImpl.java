@@ -187,7 +187,8 @@ import static twitter4j.internal.json.z_T4JInternalParseUtil.*;
                 }
             }
         }
-        return null;
+        URLEntity[] returnOb = new  URLEntity[0];
+        return returnOb;
     }
 
     @Override
