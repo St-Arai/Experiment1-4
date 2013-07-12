@@ -112,7 +112,7 @@ import static twitter4j.internal.json.z_T4JInternalParseUtil.*;
             
             // urlEntity <=> entities/url/urls[]
             URLEntity[] urlEntities = getURLEntitiesFromJSON(json, "url");
-            if (urlEntities != null && urlEntities.length > 0) {
+            if (urlEntities.length > 0) {
                 urlEntity = urlEntities[0];
             }
             
