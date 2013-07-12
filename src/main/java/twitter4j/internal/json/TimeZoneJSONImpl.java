@@ -16,44 +16,47 @@
 
 package twitter4j.internal.json;
 
+import static twitter4j.internal.json.z_T4JInternalParseUtil.getInt;
 import twitter4j.TimeZone;
 import twitter4j.TwitterException;
 import twitter4j.internal.org.json.JSONException;
 import twitter4j.internal.org.json.JSONObject;
 
-import static twitter4j.internal.json.z_T4JInternalParseUtil.getInt;
-
 /**
  * @author Alessandro Bahgat - ale.bahgat at gmail.com
  */
 public class TimeZoneJSONImpl implements TimeZone {
-    private final String NAME;
-    private final String TZINFO_NAME;
-    private final int UTC_OFFSET;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7451429597322235487L;
+	private final String NAME;
+	private final String TZINFO_NAME;
+	private final int UTC_OFFSET;
 
-    TimeZoneJSONImpl(JSONObject jSONObject) throws TwitterException {
-        try {
-            UTC_OFFSET = getInt("utc_offset", jSONObject);
-            NAME = jSONObject.getString("name");
-            TZINFO_NAME = jSONObject.getString("tzinfo_name");
-        } catch (JSONException jsone) {
-            throw new TwitterException(jsone);
-        }
-    }
+	TimeZoneJSONImpl(JSONObject jSONObject) throws TwitterException {
+		try {
+			UTC_OFFSET = getInt("utc_offset", jSONObject);
+			NAME = jSONObject.getString("name");
+			TZINFO_NAME = jSONObject.getString("tzinfo_name");
+		} catch (JSONException jsone) {
+			throw new TwitterException(jsone);
+		}
+	}
 
-    @Override
-    public String getName() {
-        return NAME;
-    }
+	@Override
+	public String getName() {
+		return NAME;
+	}
 
-    @Override
-    public String tzinfoName() {
-        return TZINFO_NAME;
-    }
+	@Override
+	public String tzinfoName() {
+		return TZINFO_NAME;
+	}
 
-    @Override
-    public int utcOffset() {
-        return UTC_OFFSET;
-    }
+	@Override
+	public int utcOffset() {
+		return UTC_OFFSET;
+	}
 
 }
